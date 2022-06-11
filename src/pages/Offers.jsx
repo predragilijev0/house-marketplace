@@ -21,7 +21,7 @@ function Offers() {
                     listingsRef, 
                     where('offer', '==', true), 
                     orderBy('timestamp', 'desc'), 
-                    limit(10)
+                    limit(3)
                 )
 
                 // Execute query
@@ -61,7 +61,7 @@ function Offers() {
                 where('offer', '==', true), 
                 orderBy('timestamp', 'desc'), 
                 startAfter(lastFetchedListing),
-                limit(10)
+                limit(3)
             )
 
             // Execute query
@@ -81,6 +81,7 @@ function Offers() {
 
             setListings((prevState) => [...prevState, ...listings])
             setLoading(false)
+            setLastFetchedListing(false)
         } catch (error) {
             toast.error('Could not fetch listings')
         }

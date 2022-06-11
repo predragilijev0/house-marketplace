@@ -24,7 +24,7 @@ function Category() {
                     listingsRef, 
                     where('type', '==', params.categoryName), 
                     orderBy('timestamp', 'desc'), 
-                    limit(10)
+                    limit(3)
                 )
 
                 // Execute query
@@ -64,7 +64,7 @@ function Category() {
                 where('type', '==', params.categoryName), 
                 orderBy('timestamp', 'desc'), 
                 startAfter(lastFetchedListing),
-                limit(10)
+                limit(3)
             )
 
             // Execute query
@@ -84,6 +84,7 @@ function Category() {
 
             setListings((prevState) => [...prevState, ...listings])
             setLoading(false)
+            setLastFetchedListing(false)
         } catch (error) {
             toast.error('Could not fetch listings')
         }
