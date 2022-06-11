@@ -14,6 +14,17 @@ body {
   box-sizing: border-box;
 }
 
+.cent {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .cent {
+    max-width: 100%;
+  }
+}
+
 a {
   text-decoration: none;
   display: block;
@@ -75,14 +86,47 @@ button {
 .removeIcon {
   cursor: pointer;
   position: absolute;
-  top: -3%;
-  right: -2%;
+  bottom: 22%;
+  right: 2%;
+  background-color: #e9eef8;
+  /* background-color: #f2f4f8; */
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0.2rem;
+  transition: .25s ease-in-out;
 }
+.removeIcon:hover {
+  fill: rgb(255, 156, 156);
+  box-shadow: 0px 0px 5px rgba(0, 60, 129, 0.25);
+}
+
 .editIcon {
   cursor: pointer;
   position: absolute;
-  top: -3.4%;
-  right: 20px;
+  top: 22%;
+  right: 2%;
+  background-color: #e9eef8;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0.2rem;
+  transition: .25s ease-in-out;
+}
+.editIcon:hover {
+  fill: rgb(155, 155, 155);
+  box-shadow: 0px 0px 5px rgba(0, 60, 129, 0.25);
+}
+
+@media (max-width: 600px) {
+  .removeIcon {
+    bottom: 5%;
+    right: 2%;
+  }
+  .editIcon {
+    top: 71%;
+    right: 2%;
+  }
 }
 
 .pageContainer,
@@ -103,6 +147,7 @@ button {
     margin: 3rem;
   }
 }
+
 
 .loadingSpinnerContainer {
   position: fixed;
@@ -145,7 +190,10 @@ button {
   bottom: 0;
   right: 0;
   height: 85px;
-  background-color: #ffffff;
+  background-color: #ffffffc2;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -293,7 +341,7 @@ button {
   color: #00cc66;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 8rem;
 }
 
 @media (min-width: 1217px) {
@@ -319,6 +367,10 @@ button {
 .swiper-container {
   min-height: 225px;
   height: 23vw;
+  
+}
+.rounded {
+  border-radius: 20px;
 }
 
 .swiper-pagination-bullet-active {
@@ -339,12 +391,19 @@ button {
 .swiperSlideText {
   color: #ffffff;
   position: absolute;
-  top: 70px;
-  left: 0;
+  left: 0; 
+  right: 0;
+  bottom: 30px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: auto;
   font-weight: 600;
   max-width: 90%;
+  text-align: center;
   font-size: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  text-shadow: -1px 0 5px rgba(0, 0, 0, 0.5), 0 1px 5px rgba(0, 0, 0, 0.5), 1px 0 5px rgba(0, 0, 0, 0.5), 0 -1px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 0px 1rem 1rem 0px;
   padding: 0.5rem;
 }
 @media (min-width: 1024px) {
@@ -356,12 +415,14 @@ button {
 .swiperSlidePrice {
   color: #000000;
   position: absolute;
-  top: 143px;
+  top: 0;
+  /* bottom: 0; */
   left: 11px;
   font-weight: 600;
   max-width: 90%;
   background-color: #ffffff;
   padding: 0.25rem 0.5rem;
+  /* border-radius: 0 1rem 1rem 0; */
   border-radius: 1rem;
 }
 @media (min-width: 1024px) {
@@ -396,16 +457,28 @@ button {
   margin-bottom: 10rem;
 }
 
-.categoryListings {
+@media (max-width: 1024px) {
+  .categoryListings {
+    /* max-width: 500px; */
+    padding: 0;
+  }
+}
+
+.listingsList {
   padding: 0;
 }
 
 .categoryListing {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  /* padding: 1rem; */
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   position: relative;
+  
 }
 
 .categoryListingLink {
@@ -413,24 +486,36 @@ button {
 }
 
 .categoryListingImg {
-  width: 30%;
-  height: 100px;
-  border-radius: 1.5rem;
+  width: 32%;
+  height: 150px;
+  border-radius: 1.5rem 0px 0px 1.5rem;
   object-fit: cover;
 }
-@media (min-width: 1024px) {
+@media (max-width: 600px) {
+  .categoryListing {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .categoryListingImg {
-    width: 19%;
+    /* width: 19%; */
+    border-radius: 1rem 1rem 0px 0px;
+    width: 100%;
     height: 217px;
   }
 }
 
 .categoryListingDetails {
   width: 65%;
+  margin-left: 1rem;
 }
-@media (min-width: 1024px) {
+@media (max-width: 600px) {
   .categoryListingDetails {
-    width: 79%;
+    width: 90%;
+  }
+}
+@media (max-width: 360px) {
+  .categoryListingDetails {
+    width: 75%;
   }
 }
 
@@ -628,6 +713,12 @@ button {
   background-color: #00cc66;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
+  transition: .25s ease-in-out;
+}
+.logOut:hover {
+  background-color: #50e99d;
+  color: #000000;
+  transform: translateY(-5px);
 }
 
 .profileDetailsHeader {

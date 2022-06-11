@@ -98,7 +98,7 @@ function Profile() {
             </button>
         </header>
 
-        <main>
+        <main className='cent'>
             <div className="profileDetailsHeader">
                 <p className="profileDetailsText">Personal Details</p>
                 <p className="changePersonalDetails" onClick={() => {
