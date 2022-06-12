@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## DEMO
 
-In the project directory, you can run:
+You can check out this project live on: https://app-house-marketplace.vercel.app/
 
 ### `npm start`
 
